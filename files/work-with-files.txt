@@ -1,0 +1,6 @@
+ps aux | grep tail
+lsof -p 21486
+ls -la /proc/21486/fd
+ls -la /proc/21486/fd/3
+cat /proc/21486/fd/3
+cp /proc/21486/fd/3 /tmp/restored.txt

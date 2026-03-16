@@ -1,0 +1,31 @@
+
+git log
+git push -u origin master
+git remote -v   #
+git remote
+git remote -h
+git remote get-url
+ssh -T
+ssh -h
+ssh -T git@github.com
+ssh  git@github.com
+ssh-add -l
+git checkout
+git brahcn origin/test
+git checkout main	#Переключение на ветку
+git pull origin master	#Скачать ветку
+git status
+git push
+git push --set-upstream origin origin/test
+git diff README.md
+git add README.md
+git commit -m "маки серверов"
+git checkout -b test	#создть ветку
+git checkout origin/test# Переключиться на ветку
+git branch -d test	#Удаллить ветку локальную
+git branch -a
+git push origin HEAD
+git push origin --delete origin/test
+git push -u origin test
+git merge test
+git log --all --graph --decorate --oneline

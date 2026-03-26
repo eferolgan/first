@@ -62,3 +62,10 @@ docker exec joomla-phpfpm ping -c 3 mysql
 docker exec joomla-phpfpm env | grep JOOMLA
 
 docker compose restart phpfpm
+# Проверим связь с mysql по сети (без ping)
+docker exec joomla-phpfpm bash -c "cat /dev/tcp/mysql/3306" && echo "OK"
+
+# Попробуем подключиться к MySQL из phpfpm контейнера
+docker exec joomla-mysql mysql -u joomla -pwhOoOwd3 -e "SHOW DATABASES;"
+#Пересоздать
+docker compose up -d --force-recreate

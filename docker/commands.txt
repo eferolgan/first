@@ -1,0 +1,52 @@
+#Образы (Images)
+docker images                  # список образов
+docker pull nginx              # скачать образ
+docker build -t myapp .        # собрать образ из Dockerfile
+docker rmi nginx               # удалить образ
+docker image prune             # удалить все неиспользуемые образы
+
+#Контейнеры (Containers)
+docker ps                      # запущенные контейнеры
+docker ps -a                   # все контейнеры (включая остановленные)
+docker run nginx               # запустить контейнер
+docker run -d nginx            # запустить в фоне (detached)
+docker run -d -p 8080:80 nginx # пробросить порт хост:контейнер
+docker run -it ubuntu bash     # интерактивный режим
+docker stop <id/name>          # остановить
+docker start <id/name>         # запустить снова
+docker restart <id/name>       # перезапустить
+docker rm <id/name>            # удалить контейнер
+docker rm -f <id/name>         # удалить принудительно (даже запущенный)
+docker container prune         # удалить все остановленные
+
+#Логи и отладка
+docker logs <id/name>          # логи контейнера
+docker logs -f <id/name>       # логи в реальном времени
+docker exec -it <id/name> bash # зайти внутрь контейнера
+docker inspect <id/name>       # подробная информация
+docker stats                   # потребление ресурсов (live)
+docker top <id/name>           # процессы внутри контейнера
+
+
+#Тома (Volumes)
+docker volume ls               # список томов
+docker volume create mydata    # создать том
+docker volume inspect mydata   # информация о томе
+docker volume rm mydata        # удалить том
+docker volume prune            # удалить все неиспользуемые
+
+# Монтирование при запуске:
+docker run -v mydata:/data nginx          # именованный том
+docker run -v /host/path:/container/path  # bind mount (папка с хоста)
+
+#Сети (Networks)
+docker network ls              # список сетей
+docker network create mynet    # создать сеть
+docker network inspect mynet   # информация
+docker network rm mynet        # удалить
+docker run --network mynet nginx  # подключить контейнер к сети
+
+#Очистка всего
+docker system df               # сколько места занимает Docker
+docker system prune            # удалить всё неиспользуемое
+docker system prune -a         # удалить вообще всё (включая образы)
